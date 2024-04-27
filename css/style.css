@@ -45,7 +45,7 @@
      padding: 0 0 10px 0;
      font-weight: normal;
      line-height: normal;
-     color: #111111;
+     color: #ffffff;
      margin: 0 
 }
  h1 {
@@ -526,7 +526,7 @@
      line-height: 10px;
      padding: 5px 5px;
      cursor: pointer;
-     color: #ffffff;
+     color: #000000;
 }
  .right-dropdown-currency .dropdown-link {
      min-width: 100px;
@@ -1414,7 +1414,7 @@ font-weight: 500;
 padding-bottom: 20px;
 }
  .location_section {
-     background-color: #fff;
+     background-color: #000000;
      margin-bottom: 40px;
      border-radius: 10px;
      padding: 20px 35px;
@@ -1536,10 +1536,9 @@ justify-content: center;
 
 
 .contineer_page .header {background: #656565; padding-bottom: 27px;     position: inherit;}
-
-.backgro_mh {background: #0ed1f0; }
+.backgro_mh {background: #ffffff; }
 .heding h2 {
-     color: #fff;
+     color: #ffffff;
 font-size: 60px;
 line-height: 60px;
 padding: 45px 0;
