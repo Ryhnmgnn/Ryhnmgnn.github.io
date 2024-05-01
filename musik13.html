@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-  <title>PLAYLIST THE JANSEN</title>ic -->
+  <title>PLAYLIST THE JANSEN</title>
+  <!-- basic -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- mobile metas -->
@@ -16,6 +17,7 @@
   <!-- style css -->
   <link rel="stylesheet" href="css/musik.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery.min.js"></script>
   <!-- Responsive-->
   <link rel="stylesheet" href="css/responsive.css">  
   <!-- Scrollbar Custom CSS -->
@@ -23,6 +25,23 @@
   <!-- Tweaks for older IEs-->
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+  <script>
+    $(document).ready(function() {
+      $('audio').on('play', function() {
+        var current = this;
+        $('audio').each(function() {
+          if (this !== current) {
+            this.pause();
+          }
+        });
+      });
+
+      $('audio').on('ended', function() {
+        this.currentTime = 0; // Reset waktu ke awal setelah lagu selesai
+        this.play(); // Mulai mainkan lagi lagu tersebut
+      });
+    });
+  </script>
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
