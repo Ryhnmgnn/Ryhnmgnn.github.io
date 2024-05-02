@@ -24,6 +24,43 @@
   <!-- Tweaks for older IEs-->
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+  <style>
+    .album-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+    .album {
+      width: 30%;
+      margin: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .album:hover {
+      transform: scale(1.05);
+    }
+    .album img {
+      width: 100%;
+      height: auto;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .album-info {
+      padding: 15px;
+      background: #000000;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    .album-info h4 {
+      margin: 0;
+      color: #ffffff;
+    }
+    .album-info p {
+      color: #fffefe;
+      font-size: 14px;
+    }
+  </style>
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -84,8 +121,7 @@
 </div>
         <div class="heding">
           <header>
-            <h2>Dengarkan Musik Dan Rasakan Sensasi Suara Yang Sentasional</h2>
-            <h1>Klik Di Bawah Ini Untuk Mencari PLaylist Lagu Yang Kalian Inginkan</h1>
+            <h2>Klik Di Bawah Ini Untuk Mencari PLaylist Lagu Yang Kalian Inginkan</h2>
           </header>
         </div>
 
@@ -109,56 +145,142 @@
     <title>Playlist Website</title>
 </head>
 <body>
-      <div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="text-bg">
-        <h4>SZA - The Weeknd - Bruno Mars - Ed Sheeran</h4>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-bg">
+  <div class="album-container">
+    <div class="album">
+      <img src="https://r4.wallpaperflare.com/wallpaper/69/490/463/sza-ocean-view-women-hd-wallpaper-29c0987db1baad2bf6f7589fe0a1a64d.jpg" alt="Album 1">
+      <div class="album-info">
+        <h4>Album - SZA</h4>
+        <p>Released: 2016</p>
+        <a href="musik.html">Playlist - SZA</a>
       </div>
-      <div>
-        <div class="row">
-        <div class="col-md-12">
-          <div class="text-bg">
-          <a href="musik.html"><p5>Playlist SZA</p5>
-          <a href="musik1.html"><p5>Playlist The Weeknd</p5>
-          <a href="musik2.html"><p5>Playlist Bruno Mars</p5>
-          <a href="musik3.html"><p5>Playlist Ed Sheeran</p5>
-          </a>
+    </div>
+      <div class="album">
+      </a><img src="https://c4.wallpaperflare.com/wallpaper/1015/75/665/vaporwave-synthwave-the-weeknd-starboy-simple-background-hd-wallpaper-preview.jpg" alt="Album 2">
+      <div class="album-info">
+        <h4>Album - The Weeknd</h4>
+        <p>Released: 2017</p>
+        <a href="musik1.html">Playlist - The Weeknd</a>
       </div>
-        <div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="text-bg">
-                <h4>Pamungkas - Hindia - Prefect - Tulus</h4>
-                    <a href="musik4.html"><p5>Playlist pamungkas</p5>
-                    <a href="musik5.html"><p5>Playlist Hindia</p5>
-                    <a href="musik6.html"><p5>Playlist Bazzi</p5>
-                    <a href="musik7.html"><p5>Playlist Justin Bieber </p5> 
-                    </a>
-                    </div>
-                          <div>
-                          <div class="row">
-                          <div class="col-md-12">
-                            <div class="text-bg">
-                              <h4>Tulus - Rizky Febian - Seventeen - FourTwenty</h4>
-                              <a href="musik8.html"><p5>Playlist Tulus </p5>
-                              <a href="musik9.html"><p5>Playlist Rizky Febian</p5>
-                              <a href="musik10.html"><p5>Playlist Seventeen</p5>
-                              <a href="musik11.html"><p5>Playlist FourTwenty</p5>
-                              </a>
-                              </div>
-                          <div>
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="text-bg">
-                                  <h4>Feby Putri - The Jansen - Raavfy - Last Child</h4>
-                                      <a href="musik12.html"><p5>Playlist Feby Putri</p5>
-                                      <a href="musik13.html"><p5>Playlist The Jansen</p5>
-                                      <a href="musik14.html"><p5>Playlist Raavfy</p5>
-                                      <a href="musik15.html"><p5>Playlist Last Child</p5> 
-                                      </a>
-                                      </div>
+    </div>
+      <div class="album">
+        <img src="https://c4.wallpaperflare.com/wallpaper/779/579/658/bruno-brunomars-holigan-holigans-wallpaper-preview.jpg" alt="Album 3">
+        <div class="album-info">
+          <h4>Album - Bruno Mars</h4>
+          <p>Released: 2016</p>
+          <a href="musik2.html">Playlist - Bruno Mars</a>
+        </div>
+      </div>
+      <div class="album">
+        <img src="https://i.vimeocdn.com/video/539907384-1fa1508bb40465cd0e58260de40869b8c69882a1c92d6bcf66fe215ee7bd1428-d" alt="Album 4">
+        <div class="album-info">
+          <h4>Album - Sheeran</h4>
+          <p>Released: 2017</p>
+          <a href="musik3.html">Playlist - Ed Sheeran</a>
+        </div>
+      </div>
+        <div class="album">
+          <img src="https://asset-2.tstatic.net/tribunnews/foto/bank/images/penyanyi-pamungkas.jpg" alt="Album 5">
+          <div class="album-info">
+            <h4>Album - Pamungkas</h4>
+            <p>Released: 2016</p>
+            <a href="musik4.html">Playlist - Pamungkas</a>
+          </div>
+        </div>
+        <div class="album">
+          <img src="https://cdn.timesmedia.co.id/images/2019/11/01/Hindia.jpg" alt="Album 6">
+          <div class="album-info">
+            <h4>Album - Hindia</h4>
+            <p>Released: 2017</p>
+            <a href="musik5.html">Playlist - Hindia</a>
+          </div>
+        </div>
+        <div class="album">
+          <img src="https://i.ytimg.com/vi/lbOy79R1OpU/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBR6m1GpQWKUYABaK335vYQCP2MnA" alt="Album 7">
+          <div class="album-info">
+            <h4>Album - Bazzi</h4>
+            <p>Released: 2017</p>
+            <a href="musik6.html">Playlist - Bazzi</a>
+          </div>
+        </div>
+        <div class="album">
+          <img src="https://images8.alphacoders.com/284/284137.jpg" alt="Album 8">
+          <div class="album-info">
+            <h4>Album - Justin Bieber</h4>
+            <p>Released: 2017</p>
+            <a href="musik7.html">Playlist - Justin Bieber</a>
+          </div>
+        </div>
+        <div class="album">
+          <img src="https://www.inibalikpapan.com/wp-content/uploads/2022/07/IMG-20220708-WA0123.jpg" alt="Album 9">
+          <div class="album-info">
+            <h4>Album - Tulus</h4>
+            <p>Released: 2017</p>
+            <a href="musik8.html">Playlist - Tulus</a>
+          </div>
+        </div>
+        <div class="album">
+          <img src="https://media.suara.com/pictures/480x260/2021/03/17/25841-lagu-seperti-kisah-rizky-febian.jpg" alt="Album 10">
+          <div class="album-info">
+            <h4>Album -Rizky Febian</h4>
+            <p>Released: 2017</p>
+            <a href="musik9.html">Playlist - Rizky Febian</a>
+          </div>
+        </div>
+        <div class="album">
+          <img src="https://asset-2.tstatic.net/solo/foto/bank/images2/Chord-dan-Lirik-Lagu-Dengan-Hati-Lyla.jpg" alt="Album 11">
+          <div class="album-info">
+            <h4>Album - Seventeen</h4>
+            <p>Released: 2017</p>
+            <a href="musik10.html">Playlist - Seventeen</a>
+          </div>
+        </div>
+        <div class="album">
+          <img src="https://imgsrv2.voi.id/3-DVu71BtEbCGuLPGjkAThcgMuxwfDKON6kIwRrOLD8/auto/1200/675/sm/1/bG9jYWw6Ly8vcHVibGlzaGVycy8yNzQ3ODgvMjAyMzA0MjMxMDIzLW1haW4uY3JvcHBlZF8xNjgyMjIwMjQ3LmpwZw.jpg" alt="Album 12">
+          <div class="album-info">
+            <h4>Album - Fourtwnty</h4>
+            <p>Released: 2017</p>
+            <a href="musik11.html">Playlist - Fourtwnty</a>
+          </div>
+        </div>
+        <div class="album">
+          <img src="https://i.ytimg.com/vi/jo61nr5-YA0/maxresdefault.jpg" alt="Album 13">
+          <div class="album-info">
+            <h4>Album - Feby Putri</h4>
+            <p>Released: 2017</p>
+            <a href="musik12.html">Playlist - Feby Putri</a>
+          </div>
+        </div>
+        <div class="album">
+          <img src="https://asset-a.grid.id/crop/0x0:0x0/x/photo/2022/08/04/review-album-the-jansen-banal-20220804095000.jpg" alt="Album 14">
+          <div class="album-info">
+            <h4>Album - The Jansen</h4>
+            <p>Released: 2017</p>
+            <a href="musik13.html">Playlist - The Jansen</a>
+          </div>
+        </div>
+        <div class="album">
+          <img src="images/rav.jpg" alt="Album 15">
+          <div class="album-info">
+            <h4>Album - Raavfy</h4>
+            <p>Released: 2017</p>
+            <a href="musik14.html">Playlist - Raavfy</a>
+          </div>
+        </div>
+        <div class="album">
+          <img src="https://asset-2.tstatic.net/manado/foto/bank/images/Lirik-Lagu-Sekuat-Hatimu-Last-Child.jpg" alt="Album 16">
+          <div class="album-info">
+            <h4>Album - Last Child</h4>
+            <p>Released: 2017</p>
+            <a href="musik15.html">Playlist - Last Child</a>
+          </div>
+        </div>
+    <!-- Tambahkan lebih banyak album dengan format yang sama -->
+  </div>
 </body>
+</html>
 <footer>
     <p>&copy; 2024 My Playlist By Dsain @Ryhnmgnn</p>
 </footer>
