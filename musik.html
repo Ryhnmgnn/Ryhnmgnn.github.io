@@ -42,6 +42,24 @@
       });
     });
   </script>
+  <style>
+    .song {
+      margin-bottom: 20px;
+      padding: 20px;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .song:hover {
+      transform: scale(1.05);
+    }
+    .song-info {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -133,6 +151,7 @@
                     <source src="audio/sza.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
+                <div class="lyrics" id="lyrics"></div>
             </div>
             <div class="song">
                 <h2>SZA - NOBODY GETS ME</h2>
