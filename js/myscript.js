@@ -54,7 +54,6 @@ signupButton.addEventListener("click", (e) => {
         });
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
       alert(errorMessage);
     });
@@ -82,7 +81,6 @@ signinButton.addEventListener("click", (e) => {
         });
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
       alert(errorMessage);
     });
