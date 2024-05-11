@@ -31,7 +31,7 @@ signupButton.addEventListener("click", (e) => {
   let name = document.getElementById("name").value;
   let nohp = document.getElementById("nohp").value;
   let emailSignup = document.getElementById("email_signup").value;
-  let passwordSignup = document.getElementById("psw_signup").value;
+  let passwordSignup = document.getElementById("psw_signup").value;  
 
   createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
     .then((userCredential) => {
@@ -46,7 +46,7 @@ signupButton.addEventListener("click", (e) => {
       })
         .then(() => {
           // Data saved successfully!
-          alert("user telah sukses dibuat");
+          alert("akun telah sukses dibuat");
         })
         .catch((error) => {
           //the write failed
@@ -72,8 +72,8 @@ signinButton.addEventListener("click", (e) => {
         last_login: lgDate
       })
         .then(() => {
-          // Data saved successfully!
-          //   alert("user telah sukses login");
+          //Data saved successfully!
+          alert("user telah sukses login");
           location.href = "musik_menu.html";
         })
         .catch((error) => {
