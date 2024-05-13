@@ -62,36 +62,7 @@
       font-size: 14px;
     }
   </style>
-      <script type="module">
-      import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 
-      const firebaseConfig = {
-  apiKey: "AIzaSyAhpOEebU611SJowgfx5lznZvdKn1yOxLI",
-  authDomain: "login-e7b9d.firebaseapp.com",
-  databaseURL: "https://login-e7b9d-default-rtdb.firebaseio.com",
-  projectId: "login-e7b9d",
-  storageBucket: "login-e7b9d.appspot.com",
-  messagingSenderId: "75858994181",
-  appId: "1:75858994181:web:5ce453a242c0fc1efd286c",
-  measurementId: "G-BB5D0GRH7Z"
-};
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      let logoutButton = document.getElementById("logout-button");
-      console.log(logoutButton);
-
-      logoutButton.addEventListener("click", (e) => {
-        const auth = getAuth(app);
-        signOut(auth)
-          .then(() => {
-            alert("sukses logout");
-            location.href = "login.html";
-          })
-          .catch((error) => {});
-      });
-    </script>
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -127,6 +98,7 @@
                   <nav class="main-menu ">
                     <ul class="menu-area-main">
                         <li class="active"> <a href="index.html">Home</a> </li>
+                        <li> <a href="profile.html">Profile</a> </li>
                         <li> <a href="index.html">favorite Song</a> </li>
               </ul>
             </nav>
@@ -305,7 +277,6 @@
         </div>
     <!-- Tambahkan lebih banyak album dengan format yang sama -->
   </div>
-  <button id="logout-button" class="btn btn-primary" value="ok">Logout</button>
 </body>
 </html>
 <footer>

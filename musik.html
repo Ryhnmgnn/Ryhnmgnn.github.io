@@ -51,16 +51,33 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
-    .song:hover {
-      transform: scale(1.05);
-    }
     .song-info {
       background: rgba(0, 0, 0, 0.5);
       padding: 10px;
       border-radius: 10px;
     }
   </style>
+  <script>
+function tambahkanKeFavorit(src, judul) {
+    let favorit = JSON.parse(sessionStorage.getItem('favorit')) || [];
+    
+    if (!favorit.some(song => song.src === src)) {
+        favorit.push({ src: src, judul: judul });
+        sessionStorage.setItem('favorit', JSON.stringify(favorit));
+        alert('Lagu ditambahkan ke Favorit!');
+    } else {
+        alert('Lagu sudah ada di Favorit!');
+    }
+}
 
+function hapusDariFavorit(src) {
+    let favorit = JSON.parse(sessionStorage.getItem('favorit')) || [];
+    
+    favorit = favorit.filter(song => song.src !== src);
+    sessionStorage.setItem('favorit', JSON.stringify(favorit));
+    alert('Lagu dihapus dari Favorit!');
+}
+  </script>
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -96,7 +113,8 @@
                   <nav class="main-menu ">
                     <ul class="menu-area-main">
                       <li class="active"> <a href="index.html">Home</a> </li>
-                      <li> <a href="musik_menu.html">menu musik</a> </li>
+                      <li> <a href="profile.html">Profile</a> </li>
+                      <li> <a href="musik_menu.html">Menu Musik</a> </li>
                      </ul>
                    </nav>
                </div> 
@@ -128,115 +146,157 @@
       </style>
   </head>
    <div class="heding">
-  <h2>SZA</h2>       
+  <h2>SZA</h2>
 </header>
 </div>
 </body>
       <div>
-        <body background="https://images.pexels.com/photos/19557624/pexels-photo-19557624/free-photo-of-air-cairan-ungu-abstrak.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-        <div class="row">
-        <div class="col-md-12">
-          <div class="text-bg">
-           <a href="musik_menu.html"><p5>Kembali Menu Playlist</p5>
-            </a>
-            </div>
-<main>
-        <div class="playlist">
+      <main>
+          <a href="musik_menu.html" style="text-decoration: none; color: white; background-color: #333; padding: 5px 10px; border-radius: 5px;">Kembali Menu Playlist</a>
+      </div>
+      <div class="playlist-section">
             <div class="song">
+              <div class="audio-container">
+                <div id="favorit-list">
                 <h2>SZA - SATURN</h2>
                 <p>Artist: SZA</p>
-                <audio controls>
-                    <source src="audio/sza.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+                  <audio src="audio/sza.mp3" controls data-judul="sza-saturn"></audio>
+                  <button onclick="tambahkanKeFavorit('audio/sza.mp3' , 'SZA - Saturn')">Tambahkan ke Favorit</button>
+              </div>
             </div>
-            <div class="song">
+          </div>
+        </div>
+      <div class="playlist-section">
+          <div class="song">
+            <div class="audio-container">
+              <div id="favorit-list">
                 <h2>SZA - NOBODY GETS ME</h2>
                 <p>Artist: SZA</p>
-                <audio controls>
-                    <source src="audio/sza1.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
+                <audio src="audio/sza1.mp3" controls data-judul="sza-nobadygetsme"></audio>
+                  <button onclick="tambahkanKeFavorit('audio/sza1.mp3' , 'SZA - NoBody Gets Me')">Tambahkan ke Favorit</button>
+              </div>
             </div>
-                <div class="song">
+          </div>
+        </div>
+      <div class="playlist-section">
+          <div class="song">
+            <div class="audio-container">
+              <div id="favorit-list">
                     <h2>SZA - ALL The Stars</h2>
                     <p>Artist: Kendrick Lamar - SZA</p>
-                    <audio controls>
-                        <source src="audio/sza3.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                </audio>
+                    <audio src="audio/sza3.mp3" controls data-judul="sza-allthestars"></audio>
+                    <button onclick="tambahkanKeFavorit('audio/sza3.mp3' , 'SZA - All The Stars')">Tambahkan ke Favorit</button>
+              </div>
             </div>
-                <div class="song">
+          </div>
+        </div>
+        <div class="playlist-section">
+          <div class="song">
+            <div class="audio-container">
+              <div id="favorit-list">
                     <h2>SZA - GOOD DAYS</h2>
                     <p>Artist:SZA</p>
-                    <audio controls>
-                        <source src="audio/sza4.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                </audio>
+                    <audio src="audio/sza4.mp3" controls data-judul="sza-gooddays"></audio>
+                    <button onclick="tambahkanKeFavorit('audio/sza4.mp3' , 'SZA - Good Days')">Tambahkan ke Favorit</button>
+              </div>
             </div>
-            <div class="song">
+          </div>
+        </div>
+            <div class="playlist-section">
+              <div class="song">
+                <div class="audio-container">
+                  <div id="favorit-list">
                 <h2>SZA - KILL BILL</h2>
                 <p>Artist: SZA</p>
-                <audio controls>
-                    <source src="audio/sza6.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-            </audio>
+                <audio src="audio/sza5.mp3" controls data-judul="sza-killbil"></audio>
+                <button onclick="tambahkanKeFavorit('audio/sza5.mp3' , 'SZA - Kill Bill')">Tambahkan ke Favorit</button>
+          </div>
         </div>
-            <div class="song">
+      </div>
+    </div>
+    <div class="playlist-section">
+      <div class="song">
+        <div class="audio-container">
+          <div id="favorit-list">
                 <h2>SZA - OPEN ARMS</h2>
                 <p>Artist: SZA</p>
-                <audio controls>
-                    <source src="audio/sza7.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-            </audio>
+                <audio src="audio/sza6.mp3" controls data-judul="sza-openarms"></audio>
+                <button onclick="tambahkanKeFavorit('audio/sza6.mp3' , 'SZA - Open Arms')">Tambahkan ke Favorit</button>
+          </div>
         </div>
-        <div class="song">
+      </div>
+    </div>
+    <div class="playlist-section">
+      <div class="song">
+        <div class="audio-container">
+          <div id="favorit-list">
             <h2>SZA - SNOOZE</h2>
             <p>Artist: SZA</p>
-            <audio controls>
-                <source src="audio/sza5.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-        </audio>
+            <audio src="audio/sza7.mp3" controls data-judul="sza-snooze"></audio>
+            <button onclick="tambahkanKeFavorit('audio/sza7.mp3' , 'SZA - Snooze')">Tambahkan ke Favorit</button>
+      </div>
     </div>
-        <div class="song">
+  </div>
+</div>
+<div class="playlist-section">
+  <div class="song">
+    <div class="audio-container">
+      <div id="favorit-list">
             <h2>SZA - Broken Clocks</h2>
             <p>Artist: SZA</p>
-            <audio controls>
-                <source src="audio/sza8.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-        </audio>
+              <audio src="audio/sza8.mp3" controls data-judul="sza-brokenclocks"></audio>
+              <button onclick="tambahkanKeFavorit('audio/sza8.mp3' , 'SZA - Broken Clocks')">Tambahkan ke Favorit</button>
+        </div>
+      </div>
     </div>
-        <div class="song">
+  </div>
+  <div class="playlist-section">
+    <div class="song">
+      <div class="audio-container">
+        <div id="favorit-list">
           <h2>SZA - LOW</h2>
           <p>Artist: SZA</p>
-          <audio controls>
-               <source src="audio/sza9.mp3" type="audio/mpeg">
-               Your browser does not support the audio element.
-       </audio>
+          <audio src="audio/sza9.mp3" controls data-judul="sza-low"></audio>
+          <button onclick="tambahkanKeFavorit('audio/sza9.mp3' , 'SZA - Low')">Tambahkan ke Favorit</button>
     </div>
-        <div class="song">
+  </div>
+</div>
+</div>
+<div class="playlist-section">
+  <div class="song">
+    <div class="audio-container">
+      <div id="favorit-list">
            <h2>SZA - SOS</h2>
            <p>Artist: SZA</p>
-           <audio controls>
-               <source src="audio/sza10.mp3" type="audio/mpeg">
-               Your browser does not support the audio element.
-         </audio>
-       </div>
-<div class="song">
+           <audio src="audio/sza10.mp3" controls data-judul="sza-sos"></audio>
+           <button onclick="tambahkanKeFavorit('audio/sza10.mp3' , 'SZA - SOS')">Tambahkan ke Favorit</button>
+     </div>
+   </div>
+ </div>
+ </div>
+ <div class="playlist-section">
+  <div class="song">
+    <div class="audio-container">
+      <div id="favorit-list">
     <h2>SZA - I HATE YOU</h2>
     <p>Artist: SZA</p>
-    <audio controls>
-        <source src="audio/sza11.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-</audio>
+    <audio src="audio/sza11.mp3" controls data-judul="sza-ihateyou"></audio>
+    <button onclick="tambahkanKeFavorit('audio/sza11.mp3' , 'SZA - I Hate You')">Tambahkan ke Favorit</button>
 </div>
-<div class="song">
+</div>
+</div>
+</div>
+<div class="playlist-section">
+  <div class="song">
+    <div class="audio-container">
+      <div id="favorit-list">
     <h2>SZA - HIT Different</h2>
     <p>Artist: Artist Name</p>
-    <audio controls>
-        <source src="audio/sza12.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-</audio>
+    <audio src="audio/sza12.mp3" controls data-judul="sza-hitdiffrent"></audio>
+    <button onclick="tambahkanKeFavorit('audio/sza11.mp3' , 'SZA - HIT Different')">Tambahkan ke Favorit</button>
+</div>
+</div>
+</div>
 </div>
             <!-- Add more songs as needed -->
         </div>
@@ -245,6 +305,7 @@
         <p>&copy; 2024 My Playlist By Dsain @Ryhnmgnn</p>
     </footer>
 </body>
+
 </html>
                           </ul>
                        </div>

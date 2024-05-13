@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pengguna</title>
+    <link rel="stylesheet" href="css/profile.css">
+    
+<script type="module">
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyAhpOEebU611SJowgfx5lznZvdKn1yOxLI",
+authDomain: "login-e7b9d.firebaseapp.com",
+databaseURL: "https://login-e7b9d-default-rtdb.firebaseio.com",
+projectId: "login-e7b9d",
+storageBucket: "login-e7b9d.appspot.com",
+messagingSenderId: "75858994181",
+appId: "1:75858994181:web:5ce453a242c0fc1efd286c",
+measurementId: "G-BB5D0GRH7Z"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+let logoutButton = document.getElementById("logout-button");
+console.log(logoutButton);
+
+logoutButton.addEventListener("click", (e) => {
+  const auth = getAuth(app);
+  signOut(auth)
+    .then(() => {
+      alert("sukses logout");
+      location.href = "login.html";
+    })
+    .catch((error) => {});
+});
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const favoritUl = document.getElementById('favorit-list');
+        
+        const favorit = JSON.parse(sessionStorage.getItem('favorit')) || [];
+        favorit.forEach((lagu, index) => {
+            const li = document.createElement('li');
+            li.classList.add('song-item');
+            li.textContent = `Lagu ${index + 1}: ${lagu.judul}`;
+            
+            const playButton = document.createElement('button');
+            playButton.textContent = 'Putar Lagu';
+            playButton.addEventListener('click', function() {
+                putarLagu(lagu.src);
+            });
+            
+            const hapusButton = document.createElement('button');
+            hapusButton.textContent = 'Hapus dari Favorit';
+            hapusButton.addEventListener('click', function() {
+                hapusDariFavorit(lagu.src);
+                favoritUl.removeChild(li);
+            });
+            
+            li.appendChild(playButton);
+            li.appendChild(hapusButton);
+            favoritUl.appendChild(li);
+        });
+    });
+
+    function putarLagu(src) {
+        const audioPlayer = document.getElementById('audio-player');
+        const judulLagu = document.getElementById('judul-lagu');
+        
+        audioPlayer.src = src;
+        judulLagu.textContent = `Sedang Memutar: ${src}`;
+        audioPlayer.play();
+        
+        // Mengulang lagu secara otomatis
+        audioPlayer.addEventListener('ended', function() {
+            audioPlayer.currentTime = 0;
+            audioPlayer.play();
+        });
+    }
+
+    function hapusDariFavorit(src) {
+        let favorit = JSON.parse(sessionStorage.getItem('favorit')) || [];
+        
+        favorit = favorit.filter(song => song.src !== src);
+        sessionStorage.setItem('favorit', JSON.stringify(favorit));
+        alert('Lagu dihapus dari Favorit!');
+    }
+</script>
+</head>
+<body>
+    <header>
+        <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.menu-area-main {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.menu-area-main li {
+    margin-right: 10px;
+}
+
+#logout-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+main {
+    padding: 20px;
+}
+
+.song-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+        </style>
+        <h1>Selamat Datang <span id="userCredential.user"></span></h1>
+        <ul class="menu-area-main">
+            <li> <a href="index.html">Home</a> </li>
+            <li> <a href="musik_menu.html">Music</a> </li>
+            <li> <button id="logout-button" value="ok">Logout</button> </li>
+        </ul>
+    </header>
+    <main>
+        <h1>Daftar Lagu Favorit</h1>
+        <audio id="audio-player" controls></audio>
+        <p id="judul-lagu"></p>
+        <ul id="favorit-list">
+            <!-- Daftar lagu favorit akan ditampilkan di sini -->
+        </ul>
+        </section>
+    </main>
+</body>
+</html>
