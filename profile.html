@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -93,6 +94,39 @@ logoutButton.addEventListener("click", (e) => {
         alert('Lagu dihapus dari Favorit!');
     }
 </script>
+<script>
+// Memuat lagu favorit saat halaman dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    const userId = getUserId(); // Fungsi untuk mendapatkan ID pengguna
+    
+    const favoritUl = document.getElementById('favorit-list');
+    
+    const favorit = JSON.parse(localStorage.getItem(`favorit_${userId}`)) || [];
+    favorit.forEach((lagu, index) => {
+        const li = document.createElement('li');
+        li.classList.add('song-item');
+        li.textContent = `Lagu ${index + 1}: ${lagu.judul}`;
+        
+        const playButton = document.createElement('button');
+        playButton.textContent = 'Putar Lagu';
+        playButton.addEventListener('click', function() {
+            putarLagu(lagu.src);
+        });
+        
+        const hapusButton = document.createElement('button');
+        hapusButton.textContent = 'Hapus dari Favorit';
+        hapusButton.addEventListener('click', function() {
+            hapusDariFavorit(lagu.src, userId);
+            favoritUl.removeChild(li);
+        });
+        
+        li.appendChild(playButton);
+        li.appendChild(hapusButton);
+        favoritUl.appendChild(li);
+    });
+}); 
+</script>
+
 </head>
 <body>
     <header>
