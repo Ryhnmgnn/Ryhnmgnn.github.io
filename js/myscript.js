@@ -73,7 +73,7 @@ signinButton.addEventListener("click", (e) => {
         .then(() => {
           //Data saved successfully!
           alert("user telah sukses login");
-          location.href = "musik_menu.html";
+          location.href = "profile.html";
         })
         .catch((error) => {
           //the write failed
@@ -87,4 +87,33 @@ signinButton.addEventListener("click", (e) => {
   signOut(auth)
     .then(() => {})
     .catch((error) => {});
+});
+
+sessionStorage.setItem('username', 'NamaPengguna');
+
+document.addEventListener('DOMContentLoaded', function() {
+  const usernameElement = document.getElementById('username');
+  const useremailElement = document.getElementById('useremail');
+  const playlistUl = document.getElementById('playlist');
+  
+  // Ambil nama pengguna dan email dari sesi
+  const username = sessionStorage.getItem('username');
+  const useremail = sessionStorage.getItem('useremail');
+  
+  if (username && useremail) {
+      // Tampilkan nama pengguna dan email di halaman profil
+      usernameElement.textContent = username;
+      useremailElement.textContent = useremail;
+
+      // Contoh data playlist
+      const playlists = ['Lagu 1', 'Lagu 2', 'Lagu 3'];
+
+      // Tampilkan playlist
+      playlists.forEach(song => {
+          const li = document.createElement('li');
+          li.textContent = song;
+          playlistUl.appendChild(li);
+      });
+  } else {
+  }
 });

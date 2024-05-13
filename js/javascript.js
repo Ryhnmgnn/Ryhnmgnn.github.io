@@ -102,7 +102,7 @@ changeBgBody();
 selectSong();
 }
 function playSong() {
-if (song.paused) {
+if (song.paused) {d
 song.play();
 playIcon.style.display = "none";
 pauseIcon.style.display = "block";
@@ -183,3 +183,4 @@ return;
 }
 });
 });
+
