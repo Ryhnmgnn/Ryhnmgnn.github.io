@@ -72,7 +72,7 @@
      box-sizing: border-box;
 }
  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-     color: #212121;
+     color: #ffffff;
      text-decoration: none!important;
      opacity: 1 
 }
@@ -1538,12 +1538,21 @@ justify-content: center;
 .contineer_page .header {background: #656565; padding-bottom: 27px;     position: inherit;}
 .backgro_mh {background: #ffffff; }
 .heding h2 {
-     color: #ffffff;
+color: #ffffff;
 font-size: 60px;
 line-height: 60px;
 padding: 45px 0;
 text-align: center;}
 
+.music-player {
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+}
 
-
+.controls button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
 

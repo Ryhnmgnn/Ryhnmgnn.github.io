@@ -45,3 +45,15 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.music-player {
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.controls button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
