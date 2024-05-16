@@ -187,7 +187,7 @@ button:hover {
     background-color: #0056b3;
 }
         </style>
-        <h1>Selamat Datang <span id="userCredential.user"></span></h1>
+        <h1>Selamat Datang </span></h1>
         <ul class="menu-area-main">
             <li> <a href="index.html">Home</a> </li>
             <li> <a href="musik_menu.html">Music</a> </li>
@@ -228,10 +228,24 @@ button:hover {
             #audio-player {
         display: none;
     }
+    #card {
+  display: auto;
+  justify-content: left;
+  align-items: flex-start;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0,0,0,.5);
+    }
+    body {
+  background: linear-gradient(0deg, rgba(119,173,157,1) 27%, rgba(218,249,234,1) 75%);
+}
+#judul-lagu {
+    display: none;
+}
         </style>
         <h1>Daftar Lagu Favorit</h1>
         <button onclick="jedaLagu()">Jeda Lagu</button>
-<button onclick="gantiLaguOtomatis()">Ganti Lagu Otomatis</button>
+        <button onclick="gantiLaguOtomatis()">Ganti Lagu Otomatis</button>
+        <div id='card'>
         <audio id="audio-player" controls></audio>
         <p id="judul-lagu"></p>
         <ul id="favorit-list">
