@@ -63,23 +63,18 @@
 
 <script>
   function tambahkanKeFavorit(src, judul) {
-      let favorit = JSON.parse(sessionStorage.getItem('favorit')) || [];
+      let favorit = JSON.parse(localStorage.getItem('favorit')) || [];
       
       if (!favorit.some(song => song.src === src)) {
           favorit.push({ src: src, judul: judul });
-          sessionStorage.setItem('favorit', JSON.stringify(favorit));
+          localStorage.setItem('favorit', JSON.stringify(favorit));
           alert('Lagu ditambahkan ke Favorit!');
+          
+          // Redirect ke profile.html setelah menambahkan lagu favorit
+          window.location.href = '#';
       } else {
           alert('Lagu sudah ada di Favorit!');
       }
-  }
-  
-  function hapusDariFavorit(src) {
-      let favorit = JSON.parse(sessionStorage.getItem('favorit')) || [];
-      
-      favorit = favorit.filter(song => song.src !== src);
-      sessionStorage.setItem('favorit', JSON.stringify(favorit));
-      alert('Lagu dihapus dari Favorit!');
   }
     </script>
 

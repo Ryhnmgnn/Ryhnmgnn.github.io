@@ -56,28 +56,25 @@
       padding: 10px;
       border-radius: 10px;
     }
+    
   </style>
   <script>
 function tambahkanKeFavorit(src, judul) {
-    let favorit = JSON.parse(sessionStorage.getItem('favorit')) || [];
+    let favorit = JSON.parse(localStorage.getItem('favorit')) || [];
     
     if (!favorit.some(song => song.src === src)) {
         favorit.push({ src: src, judul: judul });
-        sessionStorage.setItem('favorit', JSON.stringify(favorit));
+        localStorage.setItem('favorit', JSON.stringify(favorit));
         alert('Lagu ditambahkan ke Favorit!');
+        
+        // Redirect ke profile.html setelah menambahkan lagu favorit
+        window.location.href = '#';
     } else {
         alert('Lagu sudah ada di Favorit!');
     }
 }
-
-function hapusDariFavorit(src) {
-    let favorit = JSON.parse(sessionStorage.getItem('favorit')) || [];
-    
-    favorit = favorit.filter(song => song.src !== src);
-    sessionStorage.setItem('favorit', JSON.stringify(favorit));
-    alert('Lagu dihapus dari Favorit!');
-}
   </script>
+  
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -152,8 +149,12 @@ function hapusDariFavorit(src) {
 </body>
       <div>
       <main>
-          <a href="musik_menu.html" style="text-decoration: none; color: white; background-color: #333; padding: 5px 10px; border-radius: 5px;">Kembali Menu Playlist</a>
-      </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-bg">
+             <a href="musik_menu.html"><p5>Kembali Menu Playlist</p5>
+              </a>
+              </div>
       <div class="playlist-section">
             <div class="song">
               <div class="audio-container">
