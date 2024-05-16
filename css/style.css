@@ -832,8 +832,8 @@
      font-size: 12px;
 }
 .menu-area-main li.active a {
-     color: #fff;
-     background: #0ed1f0;
+     color: #000000;
+     background: hsl(0, 0%, 100%);
      border-radius: 17px;
      }
 
@@ -855,14 +855,14 @@
      font-size: 16px;
      display: block;
      font-weight: 500;
-     color: #fff;
+     color: #ffffff;
      text-transform: uppercase;
      transition: all 0.3s ease-in;
 }
 
  .main-menu ul>li a:hover {
 color: #fff;
-background: #0ed1f0;
+background: #000000;
 border-radius: 17px;
 transition: all 0.3s ease-in;
  }
@@ -882,12 +882,12 @@ transition: all 0.3s ease-in;
      position: relative;
      border-bottom: solid #eee 1px;
 }
- .main-menu ul>li .sub-down li a::before {
+ .main-menu ul>li .sub-down li a:before {
 }
  .main-menu ul>li .sub-down li a:hover {
      color: #111111;
 }
- .main-menu ul>li .sub-down li a:hover::before {
+ .main-menu ul>li .sub-down li a:hover:before {
 }
  .main-menu ul li:first-child {
      margin-left: 0;
@@ -994,11 +994,11 @@ transition: all 0.3s ease-in;
  .banner_Client {
      position: relative;
 }
- .text-bg {text-align: center;}
+ .text-bg {text-align: }
   .text-bg span {
      font-size: 80px;
 line-height: 80px;
-color: #0fc9da;
+color: #ffffff;
 text-transform: uppercase;
   }
  .text-bg h1 {
