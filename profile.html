@@ -93,8 +93,9 @@ logoutButton.addEventListener("click", (e) => {
         localStorage.setItem('favorit', JSON.stringify(favorit));
         alert('Lagu dihapus dari Favorit!');
     }
-
-    function jedaLagu() {
+</script>
+<script>
+function jedaLagu() {
         const audioPlayer = document.getElementById('audio-player');
         if (audioPlayer.paused) {
             audioPlayer.play();
@@ -117,52 +118,8 @@ logoutButton.addEventListener("click", (e) => {
             audioPlayer.play();
         });
     }
-    function ulangLagu() {
-        const audioPlayer = document.getElementById('audio-player');
-        audioPlayer.currentTime = 0;
-        audioPlayer.play();
-
-    }
-    let isAutoPlay = false;
-    
-    function toggleAutoPlay() {
-        const audioPlayer = document.getElementById('audio-player');
-        const favorit = JSON.parse(localStorage.getItem('favorit')) || [];
-        
-        let currentIndex = 0;
-        
-        if (!isAutoPlay) {
-            isAutoPlay = true;
-            audioPlayer.src = favorit[currentIndex].src;
-            audioPlayer.play();
-            
-            audioPlayer.addEventListener('ended', function playNextSong() {
-                currentIndex = (currentIndex + 1) % favorit.length;
-                audioPlayer.src = favorit[currentIndex].src;
-                audioPlayer.play();
-            });
-        } else {
-            isAutoPlay = false;
-            audioPlayer.pause();
-            audioPlayer.removeEventListener('ended', playNextSong);
-        }
-    }
-
-    function ulangLagu() {
-        const audioPlayer = document.getElementById('audio-player');
-        audioPlayer.currentTime = 0;
-        audioPlayer.play();
-    }
-
-    function jedaLagu() {
-        const audioPlayer = document.getElementById('audio-player');
-        if (audioPlayer.paused) {
-            audioPlayer.play();
-        } else {
-            audioPlayer.pause();
-        }
-    }
 </script>
+
 </head>
 <body>
     <header>
@@ -272,9 +229,9 @@ button:hover {
         display: none;
     }
         </style>
-
         <h1>Daftar Lagu Favorit</h1>
-        <button onclick="toggleAutoPlay()">Putar Lagu Otomatis / Berhenti</button>
+        <button onclick="jedaLagu()">Jeda Lagu</button>
+<button onclick="gantiLaguOtomatis()">Ganti Lagu Otomatis</button>
         <audio id="audio-player" controls></audio>
         <p id="judul-lagu"></p>
         <ul id="favorit-list">
