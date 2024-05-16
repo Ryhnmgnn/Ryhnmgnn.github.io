@@ -7,7 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- mobile metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <!-- site metas -->
   <title>Euntro Music</title>
   <meta name="keywords" content="">
@@ -26,7 +25,8 @@
   <!-- Tweaks for older IEs-->
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="Screen">
-<!--[if lt IE 9]>
+
+  <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
@@ -39,8 +39,11 @@
   <!-- end loader -->
   <!-- header -->
   <header>
-    <!-- header inner -->
-    <div class="header-top">
+    <style>
+      body {
+        background: linear-gradient(0deg, rgb(0, 255, 132) 27%, rgb(0, 255, 132) 75%);
+}
+  </style>
       <div class="header">
         <div class="container">
           <div class="row">
@@ -48,7 +51,6 @@
               <div class="full">
                 <div class="center-desk">
                   <div class="logo">
-                    <a href="index.html"><img src="images/logo.png" alt="#" /></a>
                   </div>
                 </div>
               </div>
@@ -76,9 +78,6 @@
      <section class="slider_section">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -97,44 +96,6 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="carousel-caption">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="text-bg">
-                      <span>Hello Everyone</span>
-                      <span><h3>Dengarkan Playlist Lagu Sekarang Juga Dan Nantikan Rilisan Lagu Terbaru</h3></span>
-                      <p>Euntro Music Premium adalah layanan musik digital yang memberimu akses untuk mendengarkan jutaan lagu bebas iklan. Dapatkan Premium Individual</p>
-                      <a href="login.html">Playlist Lagi Booming</a><a href="login.html">Premium Sekarang juga</a>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-
-          <div class="carousel-item">
-            <div class="container">
-              <div class="carousel-caption ">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="text-bg">
-                      <span>Hello Everyone</span>
-                      <span><h3>Dengarkan Playlist Lagu Sekarang Juga Dan Nantikan Rilisan Lagu Terbaru</h3></span>
-                      <p>Dengarkan Sekarang Menu Playlist Yang Sudah hadir Dan Banyak Lagu Sudah Rilis!! </p>
-                      <a href="login.html">Menu Playlist</a> <a href="login.html">Album</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-     
       <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
     <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
      
@@ -143,10 +104,7 @@
         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
       
     </a>
-   </div>
-    
-  
-
+  </div>
 </section>
 </div>
 </header>
@@ -173,12 +131,7 @@
   </div>
     </div>
 </div>
-
 <!-- end Gallery --> 
-
-
-
-
     <!--  footer -->
     <footr>
       <div class="footer ">

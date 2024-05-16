@@ -50,7 +50,7 @@ logoutButton.addEventListener("click", (e) => {
         favorit.forEach((lagu, index) => {
             const li = document.createElement('li');
             li.classList.add('song-item');
-            li.textContent = `Lagu ${index + 1}: ${lagu.judul}`;
+            li.textContent = `${lagu.judul}`;
             
             const playButton = document.createElement('button');
             playButton.textContent = 'Putar Lagu';
@@ -236,12 +236,15 @@ button:hover {
   box-shadow: 0 0 20px rgba(0,0,0,.5);
     }
     body {
-  background: linear-gradient(0deg, rgba(119,173,157,1) 27%, rgba(218,249,234,1) 75%);
+        background: linear-gradient(0deg, rgb(17, 134, 99) 27%, rgb(0, 255, 132) 75%);
 }
 #judul-lagu {
     display: none;
 }
-        </style>
+.playlist-section:nth-child(3) {
+    display: none;
+  }
+</style>
         <h1>Daftar Lagu Favorit</h1>
         <button onclick="jedaLagu()">Jeda Lagu</button>
         <button onclick="gantiLaguOtomatis()">Ganti Lagu Otomatis</button>
