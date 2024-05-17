@@ -994,7 +994,7 @@ transition: all 0.3s ease-in;
  .banner_Client {
      position: relative;
 }
- .text-bg {text-align: }
+ .text-bg {text-align: center}
   .text-bg span {
      font-size: 80px;
 line-height: 80px;
