@@ -378,24 +378,5 @@ button:hover {
         </ul>
         </section>
     </main>
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const username = localStorage.getItem('username');
-
-    if (!username) {
-        const enteredUsername = prompt('Masukkan username Anda:');
-        localStorage.setItem('username', enteredUsername);
-        alert('Username berhasil disimpan dan tidak dapat diubah!');
-
-        const nicknameDisplay = document.createElement('p');
-        nicknameDisplay.textContent = `Nickname: ${enteredUsername}`;
-        document.querySelector('header').appendChild(nicknameDisplay);
-    } else {
-        const nicknameDisplay = document.createElement('p');
-        nicknameDisplay.textContent = `Nickname: ${username}`;
-        document.querySelector('header').appendChild(nicknameDisplay);
-    }
-});
-    </script>
 </body>
 </html>
