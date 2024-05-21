@@ -189,53 +189,54 @@ button:hover {
         </style>
          <h1>Selamat Datang </span></h1>
         <input type="file" id="fileInput" style="display: none">
-        <label for="fileInput">
-            <img id="profileImage" src="images/profilelogo.png" style="max-width: 200px; cursor: pointer;">
-        </label>
-        <button id="deleteImage" style="display: none">Hapus Foto</button>
-        <script>
-            const fileInput = document.getElementById('fileInput');
-            const profileImage = document.getElementById('profileImage');
-            const deleteButton = document.getElementById('deleteImage');
-        
-            // Load saved profile image on page load
-            document.addEventListener('DOMContentLoaded', function() {
-                const savedImageUrl = localStorage.getItem('profileImage');
-                if (savedImageUrl) {
-                    profileImage.src = savedImageUrl;
-                    deleteButton.style.display = 'block';
-                }
-            });
-        
-            // Handle file input change to save new profile image
-            fileInput.addEventListener('change', function() {
-                const file = fileInput.files[0];
-                if (file.type === 'image/jpeg' || file.type === 'image/png') {
-                    const imageUrl = URL.createObjectURL(file);
-                    profileImage.src = imageUrl;
-                    localStorage.setItem('profileImage', imageUrl);
-                    deleteButton.style.display = 'block';
-                } else {
-                    alert('Mohon pilih file dengan format JPG atau PNG.');
-                    fileInput.value = ''; // Reset the file input
-                }
-            });
-        
-            // Handle delete button click to remove profile image
-            deleteButton.addEventListener('click', function() {
-                profileImage.src = 'images/profilelogo.png'; // Set default image URL
-                localStorage.removeItem('profileImage');
-                deleteButton.style.display = 'none';
-            });
-        
-            // Save profile image URL in localStorage when navigating away from the page
-            window.addEventListener('beforeunload', function() {
-                const currentImageUrl = profileImage.src;
-                if (currentImageUrl !== 'images/profilelogo.png') {
-                    localStorage.setItem('profileImage', currentImageUrl);
-                }
-            });
-        </script>
+    <label for="fileInput">
+        <img id="profileImage" src="images/profilelogo.png" style="max-width: 200px; cursor: pointer;">
+    </label>
+    <button id="deleteImage" style="display: none">Hapus Foto</button>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const profileImage = document.getElementById('profileImage');
+        const deleteButton = document.getElementById('deleteImage');
+
+        // Load saved profile image on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedImageUrl = localStorage.getItem('profileImage');
+            if (savedImageUrl) {
+                profileImage.src = savedImageUrl;
+                deleteButton.style.display = 'block';
+            }
+        });
+
+        // Handle file input change to save new profile image
+        fileInput.addEventListener('change', function() {
+            const file = fileInput.files[0];
+            if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+                const imageUrl = URL.createObjectURL(file);
+                profileImage.src = imageUrl;
+                localStorage.setItem('profileImage', imageUrl);
+                deleteButton.style.display = 'block';
+            } else {
+                alert('Mohon pilih file dengan format JPG atau PNG.');
+                fileInput.value = ''; // Reset the file input
+            }
+        });
+
+        // Handle delete button click to remove profile image
+        deleteButton.addEventListener('click', function() {
+            profileImage.src = 'images/profilelogo.png'; // Set default image URL
+            localStorage.removeItem('profileImage');
+            deleteButton.style.display = 'none';
+        });
+
+        // Save profile image URL in localStorage when navigating away from the page
+        window.addEventListener('beforeunload', function() {
+            const currentImageUrl = profileImage.src;
+            if (currentImageUrl !== 'images/profilelogo.png') {
+                localStorage.setItem('profileImage', currentImageUrl);
+            }
+        });
+    </script>
         <ul class="menu-area-main">
             <li> <a href="index.html">Home</a> </li>
             <li> <a href="musik_menu.html">Music</a> </li>
