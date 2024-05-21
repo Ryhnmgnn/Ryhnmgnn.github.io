@@ -188,11 +188,6 @@ button:hover {
 }
         </style>
         <h1>Selamat Datang </span></h1>
-        <input type="file" id="fileInput" style="display: none">
-        <label for="fileInput">
-            <img id="profileImage" src="images/profilelogo.png" style="max-width: 200px; cursor: pointer;">
-        </label>
-        <button id="deleteImage">Hapus Foto</button>
         <ul class="menu-area-main">
             <li> <a href="index.html">Home</a> </li>
             <li> <a href="musik_menu.html">Music</a> </li>
@@ -314,35 +309,23 @@ button:hover {
         </section>
     </main>
     <script>
-        const image = document.getElementById("profileImage");
-        const fileInput = document.getElementById("fileInput");
-        const deleteButton = document.getElementById("deleteImage");
-    
-        // Load saved profile image on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedImageUrl = localStorage.getItem("profileImage");
-            if (savedImageUrl) {
-                image.src = savedImageUrl;
-                deleteButton.style.display = "block";
-            }
-        });
-    
-        // Handle file input change to save new profile image
-        fileInput.addEventListener("change", () => {
-            const file = fileInput.files[0];
-            const imageUrl = URL.createObjectURL(file);
-            image.src = imageUrl;
-            localStorage.setItem("profileImage", imageUrl);
-            deleteButton.style.display = "block";
-        });
-    
-        // Handle delete button click to remove profile image
-        deleteButton.addEventListener("click", () => {
-            image.src = "images/profilelogo.png";
-            localStorage.removeItem("profileImage");
-            deleteButton.style.display = "none";
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    const username = localStorage.getItem('username');
+
+    if (!username) {
+        const enteredUsername = prompt('Masukkan username Anda:');
+        localStorage.setItem('username', enteredUsername);
+        alert('Username berhasil disimpan dan tidak dapat diubah!');
+
+        const nicknameDisplay = document.createElement('p');
+        nicknameDisplay.textContent = `Nickname: ${enteredUsername}`;
+        document.querySelector('header').appendChild(nicknameDisplay);
+    } else {
+        const nicknameDisplay = document.createElement('p');
+        nicknameDisplay.textContent = `Nickname: ${username}`;
+        document.querySelector('header').appendChild(nicknameDisplay);
+    }
+});
     </script>
-    
 </body>
 </html>
