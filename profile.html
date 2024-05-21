@@ -194,70 +194,70 @@ button:hover {
     </label>
     <button id="deleteImage" style="display: none">Hapus Foto</button>
 
-               <script>
-            const fileInput = document.getElementById('fileInput');
-            const profileImage = document.getElementById('profileImage');
-            const deleteButton = document.getElementById('deleteImage');
-        
-            function loadProfileImage() {
-                const savedImageUrl = localStorage.getItem('profileImage');
-                if (savedImageUrl) {
-                    profileImage.src = savedImageUrl;
-                    deleteButton.style.display = 'block';
-                }
-            }
-        
-            document.addEventListener('DOMContentLoaded', function() {
-                const username = localStorage.getItem('username');
-        
-                if (!username) {
-                    const enteredUsername = prompt('Masukkan username Anda:');
-                    localStorage.setItem('username', enteredUsername);
-                    alert('Username berhasil disimpan dan tidak dapat diubah!');
-        
-                    const nicknameDisplay = document.createElement('p');
-                    nicknameDisplay.textContent = `Nickname: ${enteredUsername}`;
-                    document.querySelector('header').appendChild(nicknameDisplay);
-                } else {
-                    const nicknameDisplay = document.createElement('p');
-                    nicknameDisplay.textContent = `Nickname: ${username}`;
-                    document.querySelector('header').appendChild(nicknameDisplay);
-                }
-        
-                loadProfileImage();
-            });
-        
-            fileInput.addEventListener('change', function() {
-                const file = fileInput.files[0];
-                if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
-                    const imageUrl = URL.createObjectURL(file);
-                    profileImage.src = imageUrl;
-                    deleteButton.style.display = 'block';
-                    localStorage.setItem('profileImage', imageUrl);
-                } else {
-                    alert('Mohon pilih file dengan format JPG atau PNG.');
-                    fileInput.value = ''; // Reset the file input
-                }
-            });
-        
-            deleteButton.addEventListener('click', function() {
-                profileImage.src = 'images/profilelogo.png';
-                localStorage.removeItem('profileImage');
-                deleteButton.style.display = 'none';
-            });
-        
-            window.addEventListener('beforeunload', function() {
-                const currentImageUrl = profileImage.src;
-                if (currentImageUrl !== 'images/profilelogo.png') {
-                    localStorage.setItem('profileImage', currentImageUrl);
-                }
-            });
-        
-            window.addEventListener('load', loadProfileImage); // Ensure profile image is loaded on page load
-            window.addEventListener('unload', function() {
-                localStorage.setItem('profileImage', profileImage.src);
-            });
-        </script>
+<script>
+    const fileInput = document.getElementById('fileInput');
+    const profileImage = document.getElementById('profileImage');
+    const deleteButton = document.getElementById('deleteImage');
+
+    function loadProfileImage() {
+        const savedImageUrl = localStorage.getItem('profileImage');
+        if (savedImageUrl) {
+            profileImage.src = savedImageUrl;
+            deleteButton.style.display = 'block';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const username = localStorage.getItem('username');
+
+        if (!username) {
+            const enteredUsername = prompt('Masukkan username Anda:');
+            localStorage.setItem('username', enteredUsername);
+            alert('Username berhasil disimpan dan tidak dapat diubah!');
+
+            const nicknameDisplay = document.createElement('p');
+            nicknameDisplay.textContent = `Nickname: ${enteredUsername}`;
+            document.querySelector('header').appendChild(nicknameDisplay);
+        } else {
+            const nicknameDisplay = document.createElement('p');
+            nicknameDisplay.textContent = `Nickname: ${username}`;
+            document.querySelector('header').appendChild(nicknameDisplay);
+        }
+
+        loadProfileImage();
+    });
+
+    fileInput.addEventListener('change', function() {
+        const file = fileInput.files[0];
+        if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+            const imageUrl = URL.createObjectURL(file);
+            profileImage.src = imageUrl;
+            deleteButton.style.display = 'block';
+            localStorage.setItem('profileImage', imageUrl);
+        } else {
+            alert('Mohon pilih file dengan format JPG atau PNG.');
+            fileInput.value = ''; // Reset the file input
+        }
+    });
+
+    deleteButton.addEventListener('click', function() {
+        profileImage.src = 'images/profilelogo.png';
+        localStorage.removeItem('profileImage');
+        deleteButton.style.display = 'none';
+    });
+
+    window.addEventListener('beforeunload', function() {
+        const currentImageUrl = profileImage.src;
+        if (currentImageUrl !== 'images/profilelogo.png') {
+            localStorage.setItem('profileImage', currentImageUrl);
+        }
+    });
+
+    window.addEventListener('load', loadProfileImage); // Ensure profile image is loaded on page load
+    window.addEventListener('unload', function() {
+        localStorage.setItem('profileImage', profileImage.src);
+    });
+</script>
         <ul class="menu-area-main">
             <li> <a href="index.html">Home</a> </li>
             <li> <a href="musik_menu.html">Music</a> </li>
