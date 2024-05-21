@@ -316,27 +316,18 @@ button:hover {
     <script>
         const image = document.getElementById("profileImage");
         const fileInput = document.getElementById("fileInput");
-        const deleteButton = document.getElementById("deleteImage");
 
         fileInput.addEventListener("change", () => {
             const file = fileInput.files[0];
             const imageUrl = URL.createObjectURL(file);
             image.src = imageUrl;
             localStorage.setItem("profileImage", imageUrl);
-            deleteButton.style.display = "block";
-        });
-
-        deleteButton.addEventListener("click", () => {
-            image.src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png";
-            localStorage.removeItem("profileImage");
-            deleteButton.style.display = "none";
         });
 
         window.addEventListener("load", () => {
             const savedImageUrl = localStorage.getItem("profileImage");
             if (savedImageUrl) {
                 image.src = savedImageUrl;
-                deleteButton.style.display = "block";
             }
         });
 
