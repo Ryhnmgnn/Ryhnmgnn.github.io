@@ -188,6 +188,11 @@ button:hover {
 }
         </style>
         <h1>Selamat Datang </span></h1>
+        <input type="file" id="fileInput" style="display: none">
+        <label for="fileInput">
+            <img id="profileImage" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" style="max-width: 200px; cursor: pointer;">
+        </label>
+        <button id="deleteImage">Hapus Foto</button>
         <ul class="menu-area-main">
             <li> <a href="index.html">Home</a> </li>
             <li> <a href="musik_menu.html">Music</a> </li>
@@ -244,7 +249,59 @@ button:hover {
 .playlist-section:nth-child(3) {
     display: none;
   }
+  
 </style>
+<style>
+    #fileInput {
+        display: none;
+    }
+
+    label {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #profileImage {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #dfdfdf;
+    }
+    #profileImage:hover {
+            transform: scale(1.1);
+        }
+    #deleteImage {
+        display: block;
+        margin: 10px auto;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #deleteImage:hover {
+        background-color: #007bff;
+    }
+</style>
+<style>
+    img{
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #dfdfdf;
+    }
+    </style>
+    <style>
+        /* Menyembunyikan teks "No file chosen" pada input file */
+        input[type="file"] {
+            color: transparent;
+        }
+    </style>
         <h1>Daftar Lagu Favorit</h1>
         <button onclick="jedaLagu()">Jeda Lagu</button>
         <button onclick="gantiLaguOtomatis()">Ganti Lagu Otomatis</button>
@@ -256,5 +313,38 @@ button:hover {
         </ul>
         </section>
     </main>
+    <script>
+        const image = document.getElementById("profileImage");
+        const fileInput = document.getElementById("fileInput");
+        const deleteButton = document.getElementById("deleteImage");
+
+        fileInput.addEventListener("change", () => {
+            const file = fileInput.files[0];
+            const imageUrl = URL.createObjectURL(file);
+            image.src = imageUrl;
+            localStorage.setItem("profileImage", imageUrl);
+            deleteButton.style.display = "block";
+        });
+
+        deleteButton.addEventListener("click", () => {
+            image.src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png";
+            localStorage.removeItem("profileImage");
+            deleteButton.style.display = "none";
+        });
+
+        window.addEventListener("load", () => {
+            const savedImageUrl = localStorage.getItem("profileImage");
+            if (savedImageUrl) {
+                image.src = savedImageUrl;
+                deleteButton.style.display = "block";
+            }
+        });
+
+        window.addEventListener("beforeunload", () => {
+            // Uncomment the line below if you want to clear localStorage when the tab is closed
+            // localStorage.removeItem("profileImage");
+        });
+    </script>
+    
 </body>
 </html>
