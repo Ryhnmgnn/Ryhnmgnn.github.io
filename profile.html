@@ -227,6 +227,14 @@ button:hover {
                 localStorage.removeItem('profileImage');
                 deleteButton.style.display = 'none';
             });
+        
+            // Save profile image URL in localStorage when navigating away from the page
+            window.addEventListener('beforeunload', function() {
+                const currentImageUrl = profileImage.src;
+                if (currentImageUrl !== 'images/profilelogo.png') {
+                    localStorage.setItem('profileImage', currentImageUrl);
+                }
+            });
         </script>
         <ul class="menu-area-main">
             <li> <a href="index.html">Home</a> </li>
